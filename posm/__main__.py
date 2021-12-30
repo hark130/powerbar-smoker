@@ -10,13 +10,11 @@ import sys
 from posm.main import main
 
 
-def eggsecute(args: list) -> int:
-    """
-    Purpose - Execute the POWERBAR SMOKER (POSM) API
-    Param
-        args - A list of arguments, as strings, from the command line
-    Returns
-        An error code from POSM execution
+def execute(args: list) -> int:
+    """Execute the POWERBAR SMOKER (POSM) package.
+
+    Args:
+        args: A list of arguments, as strings, from the command line
     """
     return main(args)
 
@@ -25,4 +23,4 @@ if __name__ == '__main__':
     # NOTE: From pydocs...
     # Most systems require [sys.exit([arg])'s optional argument arg] to
     #   be in the range 0–127, and produce undefined results otherwise.
-    sys.exit(eggsecute(sys.argv))
+    sys.exit(execute(sys.argv))

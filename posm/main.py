@@ -1,6 +1,7 @@
 """Defines the entry level POWERBAR SMOKER (POSM) API."""
 
 # Standard Imports
+from ipaddress import AddressValueError
 # Third Party Imports
 from hobo.misc import print_exception
 from hobo.subprocess_wrapper import execute_subprocess_cmd
@@ -47,7 +48,7 @@ def main(args: list) -> int:
     if config_file:
         try:
             ip_addr = read_config(config_file)
-        except Exception as err:
+        except (FileNotFoundError, OSError, TypeError, ValueError, AddressValueError) as err:
             print_exception(err)
             success = 2
 

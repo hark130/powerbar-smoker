@@ -1,10 +1,10 @@
 """Parse the config file contents on behalf of POWERBAR SMOKER (POSM)."""
 
 # Standard Imports
+from ipaddress import AddressValueError
 # Third Party Imports
 from hobo.disk_operations import validate_file
 from hobo.network import is_valid_ipv4_addr
-from ipaddress import AddressValueError
 # Local Imports
 
 

@@ -11,12 +11,10 @@ from posm.main import main
 
 
 def eggsecute(args: list) -> int:
-    """
-    Purpose - Execute the POWERBAR SMOKER (POSM) API
-    Param
-        args - A list of arguments, as strings, from the command line
-    Returns
-        An error code from POSM execution
+    """Eggsecute the POWERBAR SMOKER (POSM) egg.
+
+    Args:
+        args: A list of arguments, as strings, from the command line
     """
     return main(args)
 
