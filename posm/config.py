@@ -11,7 +11,8 @@ from hobo.network import is_valid_ipv4_addr
 def read_config(filename: str) -> str:
     """Retrieves and validates the IP address from filename.
 
-    Reads filename, removes whitespace, validates what it finds as an IPv4 address and returns it.
+    Reads filename, ignores comments, removes whitespace, validates what it finds as an
+    IPv4 address and returns it.
 
     Args:
         filename: Relative or absolute filename from which to extract an IPv4 address.
@@ -43,7 +44,7 @@ def read_config(filename: str) -> str:
 
 
 def _load_config(filename: str) -> str:
-    """Retrieves the filenames contents, free of whitespace.
+    """Retrieves the filenames contents, free of whitespace and comments.
 
     Args:
         filename: Relative or absolute filename from which to extract an IPv4 address.
@@ -55,7 +56,8 @@ def _load_config(filename: str) -> str:
 
     # READ
     with open(filename, 'r') as in_file:
-        file_contents = in_file.read()
+        file_contents = [line for line in in_file.readlines() if not line.strip().startswith('#')]
+    file_contents = ''.join(file_contents)
 
     # DONE
     return file_contents.strip()
